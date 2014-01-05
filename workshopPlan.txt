@@ -1,0 +1,95 @@
+# Roundhouse Workshop Plan  
+
+## Workshops
+
+### Time split
+
+#### First Session
++ 20 mins setup
++ 1.5 hours lecture session
++ 20 mins break
++ 1:10 workshop
++ 15 mins saving work, tidying up
+
+#### Subsequent Sessions
++ 20 mins setup
++ 20 mins catchup
++ 1:15 lecture
++ 20 min break
++ 60 min workshop
++ 15 mins tidy up
+
+### 11/01
++ Intro to SuperCollider
++ Coding Basics
++ Making a sound
++ SynthDef/Synth
++ Envelopes
+
+### 18/01
+
+### 25/01
+
+### 01/02
+
+### 08/02
++ Integrating with DAW
++ Logic MIDI FX
+
+### 15/02 and 16/02
+
+Help with finishing up projects
+
+
+
+## Topics...
+
++ Basics
+    + Oscillators
+        + Different types
+        + LFO
+    + Envelopes
+    + Filters
+        + HPF
+        + LPF
+        + BPF
++ Drum synthesis    
+    + http://synth.tk/ artciles  practical drum
++ WaveShaper
++ Sampling / Buffer based
++ Granular
++ Classic Hardware
+    + 808
+    + 303
+    + dubset
+    + moog
+    + da funk synth - http://www.youtube.com/watch?v=-wFgs3aQzis
+    + axel f
+    + vocoder - get lucky
++ Logic synths
++ filters
++ additive
+    + AM
+    + FM
+    + RM
++ subtractive
++ concatenative
++ granular
++ waveform
++ FX
+    + Delay
+    + Reverb
++ MIDI FX / coding
++ GUI
+
+### Synthesis examples
+formant synthesis good
+envelopes for more than just mul
+freq analyser is good
+gran sampler 1 good
+
+## Misc
+gui generator...
+
+kraftwerk synthdefs
+steal this sound
