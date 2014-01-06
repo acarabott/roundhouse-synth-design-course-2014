@@ -340,7 +340,7 @@ Let's add a custom envelope to a SynthDef
 
 SynthDef(\tri, {|freq=440, mul=0.1, gate=1, out=0|
 	var sig = LFTri.ar(freq, 0, mul);
-	var env = EnvGen.ar(Env.new([0, 1, 0.2, 0.7, 0], [0.05, 0.5, 0.2, 0.5], \sin, 3), gate, doneAction: 2);
+	var env = EnvGen.ar(Env.new([0, 1, 0.05, 0.8, 0], [1, 0.05, 0.01, 0.1], \sin, 1), gate, doneAction: 2);
 
 	Out.ar(out,
 		sig * env
