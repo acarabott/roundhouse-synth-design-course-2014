@@ -26,9 +26,11 @@
 + SynthDef/Synth
 + Envelopes
 
+
 ### 18/01
++ Filters
++ Demo: Recreate Logic's ES P
 + Additive Synthesis
-    + Recreate Logic Synth
     + FM / AM / PM
 + Subtractive Synthesis
     + Filters
