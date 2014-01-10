@@ -30,8 +30,9 @@ SynthDef(\cheese, {|in=0, mix=0.5, room=0.8, damp=0.1, ldel=0.2, ldec=3,
 }).add;
 )
 
+~bus = 0;
 ~bus = Bus.audio(s, 2);
-c = Synth(\cheese, [\in, ~bus]);
+c.free; c = Synth(\cheese, [\in, ~bus, \ldec, 1, \rdec, 1, \room, 0.5]);
 
 MIDIIn.connectAll;
 

@@ -1,18 +1,48 @@
-{
-var trig, numSmp, rate, freq, wobble,out,note,mod;
-freq = (140/60)/3; // It's not dubstep if it's not at an integer multiple of 140bpm.
-trig = Impulse.kr(freq); // Main tempo pulse
-note = Demand.kr(trig, 0, Dseq([40, 43, 47, 47, 40, 49-12, 43, 40-12], inf));
-note = Slew.kr(note, 300, 20); // Pitch changes are slewed, faster up than down
-numSmp = SampleRate.ir / freq;
-rate = 2pi / numSmp;
-rate = rate * Demand.kr(trig, 0, Dseq([1/2, 6, 6, 6*2, 2, 8, 6, 6*2], inf)) / 2; // Choose random "wobble" tempo
-wobble = Phasor.ar(trig, rate, pi, 2pi ).cos; // Phasor is used to index cosine. Just sweeps through a half of a full wave.
-out = VarSaw.ar(note.midicps, width: wobble.range(0.45,0.55)) // Tone to be filtered. Notice modulation of width param.
-    + SinOsc.ar(note.midicps/2, mul: wobble.range(0,1)).dup;  // Subbass.
-out = Decimator.ar(out, 20000, wobble.range(1.2,8)); // Sampling resolution is decreased in time with the wobble.
-out = MoogLadder.ar(out, wobble.range(note.midicps,25000), wobble.range(0.03,0.1)).dup; // Emulated Moog Low Pass.
-out = out * 0.25; // Turn it down a bit to prevent clipping.
-out = [DelayC.ar(out, 1, wobble.range(0,0.0012)), DelayC.ar(out, 1, wobble.range(0.0012,0))]; // Spatialization
-out = out * Linen.kr(trig, 0.01, 0.7, 1.3/freq, doneAction: 0); // Simple Envelope
-}.play;
+(
+SynthDef(\bass, {|freq=100, mul=0.1, submul=0.1, ffreq=12000, out=0|
+	var sig = VarSaw.ar(freq, 0, 0.5, mul);
+	var sub = SinOsc.ar(freq / 2, 0, submul);
+	var mix = Mix([sig, sub]);
+	var crush = Decimator.ar(mix, 20000, 8);
+	var filt = MoogLadder.ar(crush, ffreq, 0.05);
+
+	Out.ar(out,
+		filt.dup
+	);
+}).add;
+);
+
+x = Synth(\bass);
+
+MIDIIn.connectAll;
+MIDIdef.noteOn(\noteOn, {|vel, num|
+	x.set(\freq, num.midicps);
+});
+
+
+(
+SynthDef(\wobblebass, {|wob=3, freq=100, smul=1, submul=1, ffreq=12000, mul=0.1, out=0|
+	var wobble, sig, sub, mix, crush, filt;
+	wobble = SinOsc.kr(wob);
+	freq = freq.lag(0.2);
+	sig = VarSaw.ar(freq, 0, 0.5, smul * wobble);
+	sub = SinOsc.ar(freq / 2, 0, submul * wobble);
+	mix = Mix([sig, sub]);
+	crush = Decimator.ar(mix, wobble.abs.range(10000, 20000), wobble.abs.range(2, 4));
+	wobble.abs.poll;
+	filt = MoogLadder.ar(crush, wobble.abs.range(freq, 25000), 0.05);
+	filt = filt * mul;
+	Out.ar(out,
+		filt.dup
+	);
+}).add;
+)
+
+x.free;x = Synth(\wobblebass, [\wob, 1.5, \ffreq, 5000]);
+x.set(\wob, 2);
+
+MIDIIn.connectAll;
+
+MIDIdef.noteOn(\noteOn, {|vel, num|
+	x.set(\freq, num.midicps);
+});
