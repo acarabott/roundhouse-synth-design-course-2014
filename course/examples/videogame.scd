@@ -9,8 +9,7 @@ SynthDef(\vg, {|freq=220, mul=0.1, ffreq=1000, rq=1, gate=1, pan=0, bits=8, ds=8
 	// bit crusher,
 	sig.trunc(1 / bits);
 	// down sampling
-	sample = Dseq([sig], inf);
-	sig = Duty.ar(SampleDur.ir * ds, 0, sample);
+	sig = Decimator.ar(sig, SampleRate.ir / ds, bits);
 	// volume envelope
 	sig = sig * mul.lag(0.01);
 
