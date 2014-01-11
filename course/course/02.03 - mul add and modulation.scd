@@ -151,3 +151,14 @@ Even more alternatively (hipster points)
 
 	LPF.ar(sig, lfo);
 }.scope;
+
+/*
+Custom input range
+*/
+
+{
+	var sig = LFSaw.ar(440) * 0.1;
+	var lfo = SinOsc.kr(1).linlin(-1, 1, 1, 20000).poll; // linear scaling
+	// var lfo = SinOsc.kr(1).linexp(-1, 1, 1, 20000).poll; // linear scaling
+	LPF.ar(sig, lfo);
+}.scope;
