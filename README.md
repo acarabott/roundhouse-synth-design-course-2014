@@ -91,3 +91,11 @@ formant synthesis good
 envelopes for more than just mul
 freq analyser is good
 gran sampler 1 good
+
+### Acknowledgements / Misc
+
+Teaching style and material influenced by Nick Collins' SuperCollider Tutorial 
+
+http://www.dur.ac.uk/nick.collins/teaching/supercollider/sctutorial/tutorial.html#chapter1
+
+Taught to 16-25 year olds at the Roundhouse, Camden, London as part of their Take Part projects in the lead up to the Roundhouse Rising festival.
