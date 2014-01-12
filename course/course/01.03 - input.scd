@@ -141,7 +141,6 @@ MIDIdef.noteOn(\noteOnAction, {|vel, num|
 	[vel, num].postln;
 
 	~tri.set(\freq, num.midicps);
-	//Wheyyy, mono synth glory
 });
 
 /*
