@@ -28,11 +28,14 @@ A SynthDef is like a recipe, it gives us the definition or shape of the synth we
 Think of it as a jelly mould which you can then make many jellies.
 We can then easily make many (tens, hundreds, thousands...) of Synths from this mould
 
-Here's our LFTri synth written out as a SynthDef
+Here's our LFTri synth, and then the same thing written out as a SynthDef
 
-~tri = {|freq=440, mul=0.1| LFTri.ar(freq, 0, mul) }.play;
 */
 
+// old and busted
+~tri = {|freq=440, mul=0.1| LFTri.ar(freq, 0, mul) }.play;
+
+// new hotness
 SynthDef(\tri, {|freq=440, mul=0.1, out=0|
 	Out.ar(out,
 		LFTri.ar(freq, 0, mul);
