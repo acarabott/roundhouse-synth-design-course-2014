@@ -113,17 +113,3 @@ SinOsc
 
 This should open the helpfile for the Sine Wave Generator
 */
-
-/* ------------------------- */
-/* Stopping sound            */
-/* ------------------------- */
-
-/* Run this line to generate a sine wave */
-
-{SinOsc.ar(440, 0, 0.1)}.play;
-
-/*
-To kill the sound press
-
-cmd .
-*/
