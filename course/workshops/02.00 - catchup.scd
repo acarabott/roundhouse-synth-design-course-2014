@@ -11,27 +11,24 @@ FreqScope.new;
 Let's do some warm ups to get back into it.
 You should look at the files from last week
 
-Create three SynthDefs that are playable with the keyboard, using any of these
+Create three synths that are playable with the keyboard, using any of these
 oscillators
 
 LFSaw, LFTri, LFCub, LFPar
 
-1. Mono synth, no envelope, change frequency with keyboard, no volume control
-2. Polyphonic synth with an ADSR envelope and a gate so that it can be released on noteOff
-3. Polyphonic synth with a custom envelope
+- We need to store them in variables
+- They should have freq and mul arguments with default values
+- The arguments should control the oscillators respective parameters
+- Use MIDIdef.noteOn to .set the freq using num.midicps
+- .set the mul using vel.linlin(0, 127, 0, 0.1)
+- Have all three playing at once, controlled by your keyboard
+
+Here's one to get you started
 */
-
-SynthDef(\name, { |out=0|
-	Out.ar(out,
-
-	);
-}).add;
+~sine = {|freq=440, mul=0.1| SinOsc.ar(freq, 0, mul); }.play;
 
 MIDIIn.connectAll;
-~synths = Array.newClear(128);
 
 MIDIdef.noteOn(\noteOnAction, {|vel, num|
-});
-
-MIDIdef.noteOff(\noteOffAction, {|vel, num|
+	~sine.set(\freq, num.midicps, \mul, vel.linlin(0, 127, 0, 0.1));
 });
