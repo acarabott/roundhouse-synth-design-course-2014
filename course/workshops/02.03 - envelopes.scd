@@ -1,3 +1,8 @@
+/* ============================================================ */
+/* Envelopes 			                                        */
+/* ============================================================ */
+
+
 /*
 ------------------------
 click click click
@@ -106,7 +111,7 @@ Defining our own envelopes
 
 Now you get to see some of the power of SuperCollider.
 
-We can in fact define our own envelopes, with as many portions as we like, not limited to just ADSR
+We can into fact define our own envelopes, with as many portions as we like, not limited to just ADSR
 
 Here's an example
 */
