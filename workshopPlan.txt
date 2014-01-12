@@ -1,61 +1,35 @@
 # Roundhouse Workshop Plan  
 
-## Workshops
+## Workshop format
 
-### Time split
++ 1:30 - 2:00   setup/catchup
++ 2:00 - 3:00   session 1
++ 3:00 - 3:20   break
++ 3:20 - 4:40   session 2
++ 4:40 - 4:50   discussion
++ 4:50 - 5:00   packup
 
-#### First Session
-+ 20 mins setup
-+ 1.5 hours lecture session
-+ 20 mins break
-+ 1:10 workshop
-+ 15 mins saving work, tidying up
-
-#### Subsequent Sessions
-+ 20 mins setup
-+ 20 mins catchup
-+ 1:15 lecture
-+ 20 min break
-+ 60 min workshop
-+ 15 mins tidy up
+## Workshop Topics
 
 ### 11/01
 + Intro to SuperCollider
 + Coding Basics
 + Making a sound
-+ SynthDef/Synth
-+ Envelopes
-
++ Input: MouseX/Y, MIDIdef
 
 ### 18/01
++ Catchup: synths, variables, .set
++ SynthDef/Synth
++ Envelopes
++ Polyphony
 + Filters
-+ Demo: Recreate Logic's ES P
-+ Additive Synthesis
-    + FM / AM / PM
-+ Subtractive Synthesis
-    + Filters
-+ Famous Synths
-    + Da Funk
-    + Radiohead
-    + 303
-    + Axel F
-
-### 25/01
-+ Drum sounds
-+ Buffer sounds
-+ Live Input
-
-### 01/02
-
-### 08/02
-+ Integrating with DAW
-+ Logic MIDI FX
++ Demo: recreating Logic's ES P
 
 ### 15/02 and 16/02
 
 Help with finishing up projects
 
-## Topics...
+## Future Material
 
 + Basics
     + Oscillators
@@ -71,21 +45,29 @@ Help with finishing up projects
 + WaveShaper
 + Sampling / Buffer based
 + Granular
-+ Classic Hardware
++ Classic Synths
     + 808
     + 303
     + dubset
     + moog
-    + da funk synth - http://www.youtube.com/watch?v=-wFgs3aQzis
     + axel f
     + vocoder - get lucky
+    + Da Funk - 303 and http://www.youtube.com/watch?v=-wFgs3aQzis
+    + Radiohead
+    + 303
+    + Axel F
+    + Video game 
+    + Rockit
+    + Brass
+    + Dubstep
+    + Steal This Sound
+    + Kraftwerk SynthDefs
 + Logic synths
 + filters
 + additive
     + AM
     + FM
     + RM
-+ subtractive
 + concatenative
 + granular
 + waveform
@@ -94,15 +76,18 @@ Help with finishing up projects
     + Reverb
 + MIDI FX / coding
 + GUI
++ FM / AM / PM
++ Subtractive Synthesis
+    + Filters
++ Drum sounds
++ Buffer sounds
++ Live Input
++ Integrating with DAW
++ Logic MIDI FX
+
 
 ### Synthesis examples
 formant synthesis good
 envelopes for more than just mul
 freq analyser is good
 gran sampler 1 good
-
-## Misc
-gui generator...
-
-kraftwerk synthdefs
-steal this sound
