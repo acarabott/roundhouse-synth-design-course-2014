@@ -38,6 +38,22 @@ FreqScope.new;   // Frequency Analyser
 // Run this line to generate another sine wave
 { SinOsc.ar(567, 0, 0.1) }.play;
 
+
+/* ------------------------- */
+/* Stopping sound            */
+/* ------------------------- */
+
+/* Run this line to generate a sine wave */
+
+{SinOsc.ar(440, 0, 0.1)}.play;
+
+/*
+To kill the sound press
+
+cmd .
+*/
+
+
 /*
 We are passing three numbers to this SinOsc, these are called 'arguments' or 'parameters'
 
@@ -46,13 +62,13 @@ The helpfile tells us that these are
   - phase
   - mul (multiplier, affects volume)
 
-Start typing out the line above, and you will notice after you type the ( a yellow box will appear
+Type out the SinOsc code below, and you will notice after you type the ( a yellow box will appear
 This is to help you remember what each number does, and shows you the default value.
 
 Make sure your line is EXACTLY the same as the one above, and run it
 */
 
-{ SinOsc.ar(440, 0, 0.1] }.play;
+{ SinOsc.ar(440, 0, 0.1) }.play;
 
 /*
 Hopefully you got another sinewave, if not, check the Post Window, you probably have an error.
