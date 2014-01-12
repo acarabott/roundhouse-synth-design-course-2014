@@ -84,13 +84,11 @@ Help with finishing up projects
 + Live Input
 + Integrating with DAW
 + Logic MIDI FX
-
-
-### Synthesis examples
-formant synthesis good
-envelopes for more than just mul
-freq analyser is good
-gran sampler 1 good
++ GUI synthesis examples
+    * formant synthesis good
+    * envelopes for more than just mul
+    * freq analyser is good
+    * gran sampler 1 good
 
 ### Acknowledgements / Misc
 
