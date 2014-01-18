@@ -36,8 +36,3 @@ We can set up multiple band pass filters and achieve harmonics
 
 	Normalizer.ar(sig, 0.2);
 }.scope;
-
-/*
-What we have started doing by using filters on LFSaws (which are complex sounds)
-to cut away frequencies would also count as subtractive synthesis.
-*/
