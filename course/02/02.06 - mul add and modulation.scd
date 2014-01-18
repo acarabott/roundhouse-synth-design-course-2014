@@ -1,4 +1,4 @@
- ============================================================ */
+/* ============================================================ */
 /* Mul, Add and modulation                                      */
 /* ============================================================ */
 
@@ -27,7 +27,8 @@ s.scope;
 x = {SinOsc.ar(220, 0, 1)}.play;
 
 /*
-Here you can see the sine wave is reaching the top (1) and bottom (-1) of the scope
+Here you can see the sine wave is reaching the top (1) and bottom (-1) of the
+scope
 
 Let's use a MouseX control to adjust the mul and see what happens
 */
@@ -36,7 +37,9 @@ x.free;
 x = {SinOsc.ar(220, 0, MouseX.kr(0, 1).poll)}.play;
 
 /*
-We can now see the height of the wave change, and in the post window the value of mul
+We can now see the height of the wave change, and in the post window the value
+of mul
+
 Of course you can also hear the volume change
 */
 
@@ -50,8 +53,8 @@ Of course you can also hear the volume change
 Add
 -------------------------
 
-Add will add a constant value to the output, so if we have a signal that is going
-from -0.5 to 0.5, and we add 0.5 to it, it will go from -0 to 1
+Add will add a constant value to the output, so if we have a signal that is
+going from -0.5 to 0.5, and we add 0.5 to it, it will go from -0 to 1
 
 Set your scope back to 2 channels
 
@@ -71,7 +74,8 @@ x.free;
 
 /*
 Now try this example with add controlled by MouseX
-watch the level in the meters, but notice how it doesn't change the sound as mul did
+watch the level in the meters, but notice how it doesn't change the sound as mul
+did
 */
 s.meter;
 x = {SinOsc.ar(1000, 0, 0.1, MouseX.kr(-0.9, 0.9))}.play;
@@ -119,9 +123,11 @@ values between 0 and 20000, as these are valid Hz.
 We can use mul and add for this
 */
 
-SinOsc.kr(1, 0, 10000); // this will go from 10000 and -10000 and back once per second
+// this will go from 10000 and -10000 and back once per second
+SinOsc.kr(1, 0, 10000);
 
-SinOsc.kr(1, 0, 10000, 10000); // this will go from 0 to 20000
+// this will go from 0 to 20000
+SinOsc.kr(1, 0, 10000, 10000);
 
 {
 	var sig = LFSaw.ar(440, 0, 0.1);

@@ -2,3 +2,5 @@
 materials/*
 *.numbers
 *.zip
+*.sublime-workspace
+*.sublime-project
