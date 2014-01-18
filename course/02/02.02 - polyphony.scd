@@ -19,8 +19,7 @@ If we adjust our MIDIdef we can get a new synth for each key
 */
 MIDIIn.connectAll;
 MIDIdef.noteOn(\noteOnAction, {|vel, num|
-	num.postln;
-	// Synth(\tri, [\freq, num.midicps, \mul, vel.linlin(0, 127, 0, 0.15)]);
+	Synth(\tri, [\freq, num.midicps, \mul, vel.linlin(0, 127, 0, 0.15)]);
 });
 
 /*

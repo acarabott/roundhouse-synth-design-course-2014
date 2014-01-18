@@ -37,6 +37,7 @@ x.free;
 x = {SinOsc.ar(220, 0, MouseX.kr(0, 1).poll)}.play;
 
 /*
+
 We can now see the height of the wave change, and in the post window the value
 of mul
 

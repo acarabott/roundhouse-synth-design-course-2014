@@ -70,6 +70,7 @@ EnvGen.ar(Env.adsr(0.5, 0.3, 0.9, 1), gate, doneAction: 2);
 So now our SynthDef looks like this
 
 A couple of things are different:
+
 1. First of all I've assigned the LFTri and EnvGen to variables called sig and
 	env
 -- Variables inside a synthdef don't use ~ they have the word "var" and a space
@@ -151,6 +152,7 @@ Env.new(
 /*
 And something weirder
 */
+
 (
 Env.new(
 	Array.fill(15, {|i| i % 2 * rrand(0.25, 0.7) }) ++ 0,

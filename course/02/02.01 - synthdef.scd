@@ -53,7 +53,6 @@ It's very similar, but with a couple of changes.
 - This means use the first speaker (computer count from 0), if we set it to 1,
   it would be the right speaker
 
-
 3.
 We need to create a Synth from it, like so
 */

@@ -22,6 +22,7 @@ below it
 
 In SuperCollider we have these filters and many more, they often have intuitive
 names
+
 */
 LPF.ar
 HPF.ar
@@ -35,6 +36,7 @@ To see the full list, in the Help Window:
 4. Click on Linear
 
 
+
 Usually the filters you see on Synth plugins are Resonant filters
 These are filters with a Q factor control, this is the bandwidth of the filter
 (the range of the neighbouring frequencies that will also be affected)
@@ -43,9 +45,6 @@ With a high enough Q factor the filter has internal feedback and becomes a sine
 wave generator
 
 See 02.docs/filters.pdf for some visual explanations of these terms
-
-
-
 
 
 
