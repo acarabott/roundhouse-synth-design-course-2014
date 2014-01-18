@@ -18,12 +18,14 @@
 + Input: MouseX/Y, MIDIdef
 
 ### 18/01
-+ Catchup: synths, variables, .set
++ Catchup
 + SynthDef/Synth
-+ Envelopes
 + Polyphony
++ Envelopes
 + Filters
-+ Demo: recreating Logic's ES P
++ Subtractive Synthesis
++ Mul, add, modulation
++ Examples
 
 ### 15/02 and 16/02
 
