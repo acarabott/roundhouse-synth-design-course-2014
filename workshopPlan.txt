@@ -28,6 +28,7 @@
 + Catchup: SynthDefs, Envelopes, Polyphony
 + Filters
 + Subtractive Synthesis
++ retriggering envelopes
 + Mul, add and modulation
 + Examples
 + Demo: recreating Logic's ES P
