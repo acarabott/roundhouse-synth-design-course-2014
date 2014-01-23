@@ -88,7 +88,7 @@ x = {SinOsc.ar(1000, 0, 0.1, MouseX.kr(-0.9, 0.9))}.play;
 
 /*
 -------------------------
-Alternative Notation
+Alternative Syntax
 -------------------------
 
 There's a shorthand, alternative way of doing mul and add on a signal:

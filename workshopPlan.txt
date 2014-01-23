@@ -1,4 +1,4 @@
-# Roundhouse Workshop Plan  
+ # Roundhouse Workshop Plan  
 
 ## Workshop format
 
@@ -22,8 +22,16 @@
 + SynthDef/Synth
 + Envelopes
 + Polyphony
++ Into to filters
+
+### 25/01
++ Catchup: SynthDefs, Envelopes, Polyphony
 + Filters
++ Subtractive Synthesis
++ Mul, add and modulation
++ Examples
 + Demo: recreating Logic's ES P
+
 
 ### 15/02 and 16/02
 
