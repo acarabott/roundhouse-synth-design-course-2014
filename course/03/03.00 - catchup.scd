@@ -83,3 +83,14 @@ MIDIdef.noteOff(\noteOff, {|vel, num|
 	~synths[num].set(\gate, 0);
 });
 )
+
+
+/*
+
+To ingrain this stuff, make a new file and try and (roughly) rewrite these
+examples from memory.
+
+If you find something tricky to understand, note it down, we will compile a list
+of the things people are finding difficult and go through them together.
+
+*/
