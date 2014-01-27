@@ -1,48 +1,31 @@
 (
-SynthDef(\bass, {|freq=100, mul=0.1, submul=0.1, ffreq=12000, out=0|
-	var sig = VarSaw.ar(freq, 0, 0.5, mul);
-	var sub = SinOsc.ar(freq / 2, 0, submul);
-	var mix = Mix([sig, sub]);
-	var crush = Decimator.ar(mix, 20000, 8);
-	var filt = MoogLadder.ar(crush, ffreq, 0.05);
+SynthDef(\wobblebass, {|freq=100, wob=3, mul=0.1, out=0|
+	var sig, wobble;
+
+    freq = freq.lag(0.1);
+	wobble = LFSaw.kr(wob);
+	sig = LFSaw.ar(freq * [0.99, 1, 1.01, 0.5, 0.51]).sum;
+	sig = RLPF.ar(sig, wobble.exprange(40, 5000));
+    sig = Mix([sig, SinOsc.ar(freq / 2, 0, 1)]);
+    sig = Normalizer.ar(sig);
+    sig = sig + BPF.ar(sig, 2000, 2);
+    sig = Decimator.ar(sig, 20000, 8);
+    sig = (sig * 5).tanh;
+	sig = sig + GVerb.ar(sig, 10, 0.1, 0.7, mul:0.3);
 
 	Out.ar(out,
-		filt.dup
-	);
-}).add;
-);
-
-x = Synth(\bass);
-
-MIDIIn.connectAll;
-MIDIdef.noteOn(\noteOn, {|vel, num|
-	x.set(\freq, num.midicps);
-});
-
-
-(
-SynthDef(\wobblebass, {|wob=3, freq=100, smul=1, submul=1, ffreq=12000, mul=0.1, out=0|
-	var wobble, sig, sub, mix, crush, filt;
-	wobble = SinOsc.kr(wob);
-	freq = freq.lag(0.2);
-	sig = VarSaw.ar(freq, 0, 0.5, smul * wobble);
-	sub = SinOsc.ar(freq / 2, 0, submul * wobble);
-	mix = Mix([sig, sub]);
-	crush = Decimator.ar(mix, wobble.abs.range(10000, 20000), wobble.abs.range(2, 4));
-	wobble.abs.poll;
-	filt = MoogLadder.ar(crush, wobble.abs.range(freq, 25000), 0.05);
-	filt = filt * mul;
-	Out.ar(out,
-		filt.dup
+		sig.dup * mul
 	);
 }).add;
 )
 
-x.free;x = Synth(\wobblebass, [\wob, 1.5, \ffreq, 5000]);
-x.set(\wob, 2);
+
+x = Synth(\wobblebass, [\wob, 0]); // no wobble
+x.set(\wob, 3); // give it some wob
 
 MIDIIn.connectAll;
 
 MIDIdef.noteOn(\noteOn, {|vel, num|
-	x.set(\freq, num.midicps);
+    // new wobble with every note
+	x.set(\freq, num.midicps, \wob, [3, 4, 6].choose);
 });
