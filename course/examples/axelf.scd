@@ -1,3 +1,4 @@
+// By Arthur Carabott, based on Sound on Sound article
 (
 SynthDef(\axel, {|freq=440, lpfreq=12000, rq=0.2, gate=1, out=0|
 	var chorus = LFNoise2.ar(1).range(0.99, 1.01);

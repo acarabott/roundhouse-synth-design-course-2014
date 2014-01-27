@@ -1,3 +1,7 @@
+// From the "Emulating Video Game Sounds" recipe, page 78 of
+// "Steal This Sound" by Mitchell Sigman
+// Adapted by Arthur Carabott
+
 (
 SynthDef(\rockit, {|freq=440, detune=2, gate=1, out=0|
 	var osc1, osc2, pwm, mix, env;

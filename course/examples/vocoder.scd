@@ -1,9 +1,10 @@
+// Based on the Vocoder class by Joshua Parmenter
 (
-SynthDef(\vocoder, {|freq=440, in=0, num=56, low=100, high=5000, q=0.02, hpf=5000,
-	hpfscal=0.05, outscal=25, out=0|
+SynthDef(\vocoder, {|freq=440, in=0, num=56, low=100, high=5000, q=0.02,
+	hpf=5000, hpfscal=0.05, outscal=25, gate=1, out=0|
 
 	var mod, hasFreq, car, ratio, cf, filtmod, tracker,
-	filtcar, sig;
+	filtcar, env, sig;
 
 	mod = SoundIn.ar(in);
 	// #freq, hasFreq = Tartini.kr(mod);
@@ -23,25 +24,21 @@ SynthDef(\vocoder, {|freq=440, in=0, num=56, low=100, high=5000, q=0.02, hpf=500
 		(outscal * (filtcar * tracker ));
 	});
 
+	env = EnvGen.ar(Env.asr(0.8,1, 1.5), gate, doneAction: 2);
+
 	Out.ar(out,
-		sig.dup
+		sig.dup * env
 	);
 }).add;
 )
 
-
-x.free;x = Synth(\vocoder);
-
-
 MIDIIn.connectAll;
 
-MIDIdef.noteOn(\vocoder, {|val, num, chan, src|
-	x.set(\freq, num.midicps);
+~synths = Array.newClear(128);
+MIDIdef.noteOn(\vocoderOn, {|vel, num|
+	~synths[num] = Synth(\vocoder, [\freq, num.midicps]);
 });
 
-
-x.set(\freq, 60.midicps)
-
-x.free
-
-x = {|freq=440| Vocoder.ar(Saw.ar(freq,1),SoundIn.ar(1),56).dup}.play;
+MIDIdef.noteOff(\vocoderOff, {|vel, num|
+	~synths[num].set(\gate, 0);
+});

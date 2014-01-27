@@ -30,7 +30,8 @@ SynthDef(\snare, {|out=0, amp=0.8|
 	env1m = env1.midicps;
 	env2 = EnvGen.ar(Env([1, 0.4, 0], [0.05, 0.13], [-2, -2]), doneAction:2);
 
-	oscs = LFPulse.ar(env1m, 0, 0.5, 1, -0.5) + LFPulse.ar(env1m * 1.6, 0, 0.5, 0.5, -0.25);
+	oscs = LFPulse.ar(env1m, 0, 0.5, 1, -0.5) +
+	LFPulse.ar(env1m * 1.6, 0, 0.5, 0.5, -0.25);
 	oscs = LPF.ar(oscs, env1m * 1.2, env0);
 	oscs = oscs + SinOsc.ar(env1m, 0.8, env0);
 
@@ -121,6 +122,8 @@ SynthDef(\acid, {|out=0, gate=1, pitch=50, amp=0.1|
 	sig = RLPF.ar(sig, (pitch + env2).midicps, 0.3);
 	sig = sig * env1;
 
+	sig = (sig * 7).clip2(amp);
+
 	Out.ar(out, sig.dup);
 }).add;
 )
@@ -145,7 +148,7 @@ Synth(\hat);
 	~bseq = [
 		[1,1,1,1, 1,1,1,1, 0,1,0,1, 1,1,1,0],
 		[1,1,0,2, 1,1,0,0, 2,0,2,0, 1,2,0,4],
-		[-24,-12,0,-12, 0,-12,10,12, 0,7,-7,0, -11,1,13,15] + 38
+		[-5,22,7,7, 15,13,-9,19, 15,-5,17,19, -5,7,-2,19] + 48
 		].flop;
 
 	~pnt = 0;

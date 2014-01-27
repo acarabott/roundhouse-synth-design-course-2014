@@ -1,3 +1,7 @@
+// From the "Emulating Video Game Sounds" recipe, page 72 of
+// "Steal This Sound" by Mitchell Sigman
+// Adapted by Arthur Carabott
+
 (
 SynthDef(\vg, {|freq=220, mul=0.1, ffreq=1000, rq=1, gate=1, pan=0, bits=8, ds=8, out=0|
 	var sig, sample;
@@ -19,7 +23,7 @@ SynthDef(\vg, {|freq=220, mul=0.1, ffreq=1000, rq=1, gate=1, pan=0, bits=8, ds=8
 }).add;
 )
 
-x.free;x = Synth(\vg);
+x = Synth(\vg);
 
 MIDIIn.connectAll;
 

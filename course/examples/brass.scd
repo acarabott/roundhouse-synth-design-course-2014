@@ -1,6 +1,8 @@
+// Based on Sound on Sound Synth Secrets Part 25
+// by Arthur Carabott
 (
-SynthDef(\brass, {|freq=220, detune1=1, detune2=0.5, ffreq=12000, rq=0.4, mul=0.1, pan=0,
-	gate=1,out=0|
+SynthDef(\brass, {|freq=220, detune1=1, detune2=0.5, ffreq=12000, rq=0.4,
+	mul=0.1, pan=0, gate=1,out=0|
 
 	var sig, env, fenv;
 

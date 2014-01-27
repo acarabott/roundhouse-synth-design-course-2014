@@ -1,3 +1,5 @@
+// Based on Sound on Sound Synth Secrets 35
+// by Arthur Carabott
 SynthDef(\snare, { |sfreq=1500, out=0|
 	var tri = Mix([LFTri.ar([111, 175, 224])]) * 0.5;
 	var sine = Mix([SinOsc.ar([330, 180])]) * 0.5;

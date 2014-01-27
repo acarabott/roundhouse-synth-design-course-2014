@@ -1,48 +1,39 @@
+// Complete with kick and snare
+// by Thor Magnusson, based on patch by Dan Stowell from the sc-users list
 (
-SynthDef(\bass, {|freq=100, mul=0.1, submul=0.1, ffreq=12000, out=0|
-	var sig = VarSaw.ar(freq, 0, 0.5, mul);
-	var sub = SinOsc.ar(freq / 2, 0, submul);
-	var mix = Mix([sig, sub]);
-	var crush = Decimator.ar(mix, 20000, 8);
-	var filt = MoogLadder.ar(crush, ffreq, 0.05);
+{
+	var trig, note, son, sweep, bassenv, bd, sd, swr;
 
-	Out.ar(out,
-		filt.dup
-	);
-}).add;
-);
+   trig = Impulse.kr(1);
 
-x = Synth(\bass);
+	note = Demand.kr(trig, 0, Dxrand([70,28,28,28,28,28,27,25].midicps, inf));
 
-MIDIIn.connectAll;
-MIDIdef.noteOn(\noteOn, {|vel, num|
-	x.set(\freq, num.midicps);
-});
+	swr = Demand.kr(trig, 0, Drand([0.5, 1, 2, 3, 4, 6], inf));
+	sweep = LFTri.ar(swr).exprange(40, 3000);
 
+	son = LFSaw.ar(note * [0.99, 1, 1.01]).sum;
+	son = LPF.ar(son, sweep);
+	son = Normalizer.ar(son);
+	son = son + BPF.ar(son, 1500, 2);
 
-(
-SynthDef(\wobblebass, {|wob=3, freq=100, smul=1, submul=1, ffreq=12000, mul=0.1, out=0|
-	var wobble, sig, sub, mix, crush, filt;
-	wobble = SinOsc.kr(wob);
-	freq = freq.lag(0.2);
-	sig = VarSaw.ar(freq, 0, 0.5, smul * wobble);
-	sub = SinOsc.ar(freq / 2, 0, submul * wobble);
-	mix = Mix([sig, sub]);
-	crush = Decimator.ar(mix, wobble.abs.range(10000, 20000), wobble.abs.range(2, 4));
-	wobble.abs.poll;
-	filt = MoogLadder.ar(crush, wobble.abs.range(freq, 25000), 0.05);
-	filt = filt * mul;
-	Out.ar(out,
-		filt.dup
-	);
-}).add;
+	//////// special flavours:
+	// hi manster
+	son = Select.ar(TRand.kr(trig: trig) < 0.4, [son, HPF.ar(son, 2000) * 4]);
+	// sweep manster
+	son = Select.ar(TRand.kr(trig: trig) < 0.5, [son, HPF.ar(son, sweep*0.5) * 4]);
+	// decimate
+	son = Select.ar(TRand.kr(trig: trig) < 0.2, [son, son.round(0.2)]);
+
+   son = son + GVerb.ar(son, 9, 0.1, 0.7, mul: 0.1);
+	son = (son * 2).clip2;
+
+   son = RLPF.ar(son + SinOsc.ar(note,0,LFTri.ar(swr,mul:2,add:1)).tanh, note*4, 0.4);
+
+   bassenv = Decay.ar(T2A.ar(Demand.kr(Impulse.kr(4),0,Dseq([1,0,0,1,0,0,0,0],inf))),0.7);
+   bd = FreeVerb.ar(SinOsc.ar(40+(bassenv**3*200),0,7*bassenv).clip2);
+   sd = LPF.ar(4*PinkNoise.ar*Decay.ar(Impulse.ar(0.5,0.5),0.4), 3000);
+   sd = (sd + BPF.ar(4*sd,1200)).clip2;
+
+   FreeVerb.ar(((son*0.5)+bd+sd).tanh, 0.3, 0.65);
+}.play
 )
-
-x.free;x = Synth(\wobblebass, [\wob, 1.5, \ffreq, 5000]);
-x.set(\wob, 2);
-
-MIDIIn.connectAll;
-
-MIDIdef.noteOn(\noteOn, {|vel, num|
-	x.set(\freq, num.midicps);
-});

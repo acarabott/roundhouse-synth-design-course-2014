@@ -1,3 +1,4 @@
+// Adapted by patch by Dan Stowell on the sc-users mailing list
 (
 SynthDef(\wobblebass, {|freq=100, wob=3, mul=0.1, out=0|
 	var sig, wobble;
@@ -29,3 +30,5 @@ MIDIdef.noteOn(\noteOn, {|vel, num|
     // new wobble with every note
 	x.set(\freq, num.midicps, \wob, [3, 4, 6].choose);
 });
+
+

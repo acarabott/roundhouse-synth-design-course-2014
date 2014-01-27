@@ -1,4 +1,4 @@
-FreqScope();
+// Emulations of two synths from Logic Pro X, by Arthur Carabott
 
 SynthDef(\esm, {|freq=440, mix=0.5, glide=0, cutoff=20000, rq=1, fdec=0, fint=1,
 	vel=1, fvel=1, t_gate=1, vdec=1, vvel=0, od=0, mul=0.1, pan=0, out=0|
@@ -59,7 +59,7 @@ SynthDef(\esp, {|freq=440, tmul=0, smul=1, rmul=0, r1mul=0.84, r2mul=1, nmul=0,
 	var vlfo = SinOsc.kr(vspeed, 0, vib);
 	var flfo = SinOsc.kr(fspeed, 0, wah);
 
-	// Do LFO'd filters
+	// TODO LFO'd filters
 	// filter
 	var filt = RLPF.ar(mix, ffreq, rq);
 
@@ -143,7 +143,3 @@ MIDIdef.noteOff(\noteOffAction, {|vel, num|
 // 220		380
 // 440		760
 // 880		1500
-
-s.mute;
-
-170/60
