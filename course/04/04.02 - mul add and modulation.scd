@@ -126,13 +126,14 @@ We can use mul and add for this
 // this will go from 10000 and -10000 and back once per second
 SinOsc.kr(1, 0, 10000);
 
-// this will go from 0 to 20000
+// this will go from 0 to 20000 (watch the output in the post window)
 SinOsc.kr(1, 0, 10000, 10000);
 
 (
 {
 	var sig = LFSaw.ar(440, 0, 0.1);
 	var lfo = SinOsc.kr(0.5, 0, 10000, 10000);
+	lfo.poll;
 
 	LPF.ar(sig, lfo);
 }.scope;
@@ -144,6 +145,7 @@ SinOsc.kr(1, 0, 10000, 10000);
 	var sig = LFSaw.ar(440) * 0.1;
 	var lfo = SinOsc.kr(0.5) * 10000 + 10000;
 
+	lfo.poll;
 	LPF.ar(sig, lfo);
 }.scope;
 )
@@ -156,8 +158,8 @@ Even more alternatively (hipster points)
 (
 {
 	var sig = LFSaw.ar(440) * 0.1;
-	var lfo = SinOsc.kr(0.5).range(1, 20000).poll;
-
+	var lfo = SinOsc.kr(0.5).range(1, 20000);
+	lfo.poll;
 	LPF.ar(sig, lfo);
 }.scope;
 )
@@ -169,7 +171,8 @@ Custom input range
 {
 	var sig = LFSaw.ar(440) * 0.1;
 	// var lfo = SinOsc.kr(1).linlin(-1, 1, 1, 20000).poll; // linear scaling
-	var lfo = SinOsc.kr(1).linexp(-1, 1, 1, 20000).poll; // exp scaling
+	var lfo = SinOsc.kr(1).linexp(-1, 1, 1, 20000); // exp scaling
+	lfo.poll;
 	LPF.ar(sig, lfo);
 }.scope;
 )
