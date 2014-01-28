@@ -34,72 +34,33 @@
 ### 01/02
 + Learning by example
 + Mul, add and modulation
-+ 
++ Sound files
++ Phase Vocoder
++ Live Input
 
-### 15/02 and 16/02
+### 08/02 (Undecided)
+### 15/02 and 16/02 (Undecided)
 
-Help with finishing up projects
-
-## Future Material
-
-+ Basics
-    + Oscillators
-        + Different types
-        + LFO
-    + Envelopes
-    + Filters
-        + HPF
-        + LPF
-        + BPF
-+ Drum synthesis    
-    + http://synth.tk/ artciles  practical drum
-+ WaveShaper
-+ Sampling / Buffer based
+### Remaining Topics
++ Vocoder
 + Granular
-+ Classic Synths
-    + 808
-    + 303
-    + dubset
-    + moog
-    + axel f
-    + vocoder - get lucky
-    + Da Funk - 303 and http://www.youtube.com/watch?v=-wFgs3aQzis
-    + Radiohead
-    + 303
-    + Axel F
-    + Video game 
-    + Rockit
-    + Brass
-    + Dubstep
-    + Steal This Sound
-    + Kraftwerk SynthDefs
-+ Logic synths
-+ filters
-+ additive
-    + AM
-    + FM
-    + RM
-+ concatenative
++ Concatenative
++ FM/AM/PM
++ Drum Synthesis
++ Machine Listening:
+    + Onsets
+    + Pitch/Tartini
+    + Amplitude
++ Granular
++ Concatenative
 + granular
 + waveform
 + FX
     + Delay
     + Reverb
-+ MIDI FX / coding
-+ GUI
-+ FM / AM / PM
-+ Subtractive Synthesis
-    + Filters
++ Logic MIDI FX / sequencing with code
 + Drum sounds
-+ Buffer sounds
-+ Live Input
 + Integrating with DAW
-+ Logic MIDI FX
-+ GUI synthesis examples
-    * formant synthesis good
-    * envelopes for more than just mul
-    * freq analyser is good
-    * gran sampler 1 good
 
 ### Acknowledgements / Misc
 
@@ -108,3 +69,5 @@ Teaching style and material influenced by Nick Collins' SuperCollider Tutorial
 http://www.dur.ac.uk/nick.collins/teaching/supercollider/sctutorial/tutorial.html#chapter1
 
 Taught to 16-25 year olds at the Roundhouse, Camden, London as part of their Take Part projects in the lead up to the Roundhouse Rising festival.
+
+http://www.roundhouse.org.uk/take-part/creative-projects
