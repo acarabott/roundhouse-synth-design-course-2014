@@ -46,7 +46,7 @@ Now write your own Buffer.read, using that file
 Playing Buffers
 ---------------
 
-The quickest way to play a buffer in our SynthDefs is to use the PlayBuf.ar Ugen
+The quickest way to play a buffer in our SynthDefs is to use the PlayBuf.ar UGen
 
 PlayBuf takes the following arguments and defaults:
 
@@ -60,6 +60,10 @@ PlayBuf.ar(
 	doneAction: 0	// use 0 when looping, 2 for single shot
 )
 Let's code up a PlayBuf SynthDef together
+
+One quick note, we are using BufRateScale.kr for our rate, this handles sample
+rate conversion for us, e.g. if our computer is running at 48000 but our file
+was recorded at 44100
 */
 
 
@@ -79,11 +83,51 @@ To avoid this, you must start at the penultimate sample, which you can get with
 
 
 
-/*
-TODO
 
+
+
+
+/*
+--------
 LoopBuf
-BufRd/Phasor
-PV_PlayBuf
-PV_Freeze
+--------
+
+LoopBuf is very similar to PlayBuf, the main difference is that it has
+parameters for startLoop and endLoop (in samples) so you can loop just a portion
+of a soundfile.
 */
+
+
+
+/*
+-----
+BufWr
+-----
+
+While PlayBuf and LoopBuf play automatically, BufWr has a phase parameter that
+controls the playhead. This parameter is audio rate (ar) not control rate (kr)
+
+We will rewrite our PlayBuf example using BufWr with a Phasor as the phase
+argument.
+
+*/
+
+
+
+
+/*
+Why do this?
+
+Well with a controllable playhead we can control the playhead anyway we want.
+
+e.g. with the mouse
+*/
+
+
+
+
+/*
+Or with a SinOsc
+*/
+
+
