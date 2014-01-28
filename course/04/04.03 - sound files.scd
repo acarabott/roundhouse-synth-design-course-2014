@@ -61,9 +61,16 @@ PlayBuf.ar(
 )
 Let's code up a PlayBuf SynthDef together
 
-One quick note, we are using BufRateScale.kr for our rate, this handles sample
+A couple of notes:
+
+- We are using BufRateScale.kr for our rate, this handles sample
 rate conversion for us, e.g. if our computer is running at 48000 but our file
 was recorded at 44100
+
+- When giving default arguments for buffer parameters, we use a number because
+actually what the Server is interested in is which Buffer number to use.
+This is set for us when we read a file into a Buffer, when a Buffer is passed
+into a Synth, it is converted to a its Buffer number.
 */
 
 
