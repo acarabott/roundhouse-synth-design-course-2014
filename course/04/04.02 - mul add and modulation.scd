@@ -22,6 +22,7 @@ of 0.1, we will be at our max volume. We are leaving ourselves "headroom"
 Turn your volume right down before you play run this code.
 Set the scope to one channel using the second number
 */
+s.boot;
 s.scope;
 
 x = {SinOsc.ar(220, 0, 1)}.play;
@@ -63,9 +64,7 @@ This will create two Sine waves, one per channel. The first with no add, the
 second with 0.5
 */
 
-x = {
-	[SinOsc.ar(440, 0, 0.5), SinOsc.ar(440, 0, 0.5, 0.5)]
-}.play;
+x = {[SinOsc.ar(440, 0, 0.5), SinOsc.ar(440, 0, 0.5, 0.5)]}.play;
 
 /*
 Set your scope to 1 channel and change the first number box between 0 and 1
@@ -97,7 +96,7 @@ There's a shorthand, alternative way of doing mul and add on a signal:
 e.g.
 */
 
-SinOsc.ar(440, 0, 0.1, 0.1)
+SinOsc.ar(440, 0, 0.1, 0.1);
 
 // is the same as
 
@@ -130,42 +129,47 @@ SinOsc.kr(1, 0, 10000);
 // this will go from 0 to 20000
 SinOsc.kr(1, 0, 10000, 10000);
 
+(
 {
 	var sig = LFSaw.ar(440, 0, 0.1);
-	var lfo = SinOsc.kr(1, 0, 10000, 10000);
+	var lfo = SinOsc.kr(0.5, 0, 10000, 10000);
 
 	LPF.ar(sig, lfo);
 }.scope;
-
+)
 // Alternatively
 
+(
 {
 	var sig = LFSaw.ar(440) * 0.1;
-	var lfo = SinOsc.kr(1) * 10000 + 10000;
+	var lfo = SinOsc.kr(0.5) * 10000 + 10000;
 
 	LPF.ar(sig, lfo);
 }.scope;
-
+)
 /*
 Even more alternatively (hipster points)
 
 .range will scale -1.0 - 1.0 to the arguments
 */
 
+(
 {
 	var sig = LFSaw.ar(440) * 0.1;
-	var lfo = SinOsc.kr(1).range(1, 20000).poll;
+	var lfo = SinOsc.kr(0.5).range(1, 20000).poll;
 
 	LPF.ar(sig, lfo);
 }.scope;
-
+)
 /*
 Custom input range
 */
 
+(
 {
 	var sig = LFSaw.ar(440) * 0.1;
-	var lfo = SinOsc.kr(1).linlin(-1, 1, 1, 20000).poll; // linear scaling
-	// var lfo = SinOsc.kr(1).linexp(-1, 1, 1, 20000).poll; // linear scaling
+	// var lfo = SinOsc.kr(1).linlin(-1, 1, 1, 20000).poll; // linear scaling
+	var lfo = SinOsc.kr(1).linexp(-1, 1, 1, 20000).poll; // exp scaling
 	LPF.ar(sig, lfo);
 }.scope;
+)
