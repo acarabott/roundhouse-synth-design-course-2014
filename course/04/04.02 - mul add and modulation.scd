@@ -176,3 +176,11 @@ Custom input range
 	LPF.ar(sig, lfo);
 }.scope;
 )
+
+
+
+
+/*
+Write a SynthDef that uses an LFO (low frequency oscillator, e.g. SinOsc.kr(3))
+on the cutoff frequency of a filter
+*/
