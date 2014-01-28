@@ -42,24 +42,19 @@
 ### 15/02 and 16/02 (Undecided)
 
 ### Remaining Topics
-+ Vocoder
++ FM/AM/PM
 + Granular
 + Concatenative
-+ FM/AM/PM
++ Vocoder
 + Drum Synthesis
 + Machine Listening:
     + Onsets
     + Pitch/Tartini
     + Amplitude
-+ Granular
-+ Concatenative
-+ granular
-+ waveform
-+ FX
++ FX / Busses
     + Delay
     + Reverb
 + Logic MIDI FX / sequencing with code
-+ Drum sounds
 + Integrating with DAW
 
 ### Acknowledgements / Misc
