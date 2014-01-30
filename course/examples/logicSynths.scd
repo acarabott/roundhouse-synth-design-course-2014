@@ -42,24 +42,22 @@ MIDIdef.noteOn(\noteOnAction, {|vel, num|
 });
 
 SynthDef(\esp, {|freq=440, tmul=0, smul=1, rmul=0, r1mul=0.84, r2mul=1, nmul=0,
-	vib=1, vspeed=0.02, wah=1, fspeed=0.02, ffreq=20000, rq=1, att=4.67, dec=7,
-	sus=0.115, rel=1.35, gate=1, od=1, chorus=0, mul=0.1, pan=0, out=0|
+	ffreq=20000, rq=1, att=4.67, dec=7, sus=0.115, rel=1.35, gate=1, od=1,
+	chorus=0, mul=0.1, pan=0, out=0|
 
 	// Signal generators
-	var tri = LFTri.ar(freq, 0, tmul / 6);
-	var saw = LFSaw.ar(freq, 0, smul / 6);
-	var rect = LFPulse.ar(freq, 0, 0.5, rmul / 6);
-	var rect1 = LFPulse.ar(freq / 2, 0, 0.5, r1mul / 6);
-	var rect2 = LFPulse.ar(freq / 4, 0, 0.5, r2mul / 6);
+	var vfreq = freq + vlfo;
+	var tri = LFTri.ar(vfreq, 0, tmul / 6);
+	var saw = LFSaw.ar(vfreq, 0, smul / 6);
+	var rect = LFPulse.ar(vfreq, 0, 0.5, rmul / 6);
+	var rect1 = LFPulse.ar(vfreq / 2, 0, 0.5, r1mul / 6);
+	var rect2 = LFPulse.ar(vfreq / 4, 0, 0.5, r2mul / 6);
 	var noise = WhiteNoise.ar(nmul / 6);
 	// combined
 	var mix = Mix([tri, saw, rect, rect1, rect2, noise]);
 
-	// vibrato / wah LFOs
-	var vlfo = SinOsc.kr(vspeed, 0, vib);
-	var flfo = SinOsc.kr(fspeed, 0, wah);
+	// TODO lfo left off for now as requires second synth + bus
 
-	// TODO LFO'd filters
 	// filter
 	var filt = RLPF.ar(mix, ffreq, rq);
 
@@ -143,3 +141,4 @@ MIDIdef.noteOff(\noteOffAction, {|vel, num|
 // 220		380
 // 440		760
 // 880		1500
+s.mute;
