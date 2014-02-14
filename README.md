@@ -36,26 +36,29 @@
 + Mul, add and modulation
 + Sound files
 + Phase Vocoder
-+ Live Input
 
-### 08/02 (Undecided)
-### 15/02 and 16/02 (Undecided)
+
+### 08/02 Cover Tutor - Dr. Matthew Yee-King
++ Sequencing with code
++ FX / Routing
++ FM synthesis
++ Drum Synthesis
+
+### 15/02 - 16/02
++ Live Input
++ Machine Listening:
+    + Onsets
+    + Pitch/Tartini
+    + Amplitude
++ Integrating with DAW
++ Granular Synthesis
 
 ### Remaining Topics
 + FM/AM/PM
 + Granular
 + Concatenative
 + Vocoder
-+ Drum Synthesis
-+ Machine Listening:
-    + Onsets
-    + Pitch/Tartini
-    + Amplitude
-+ FX / Busses
-    + Delay
-    + Reverb
 + Logic MIDI FX / sequencing with code
-+ Integrating with DAW
 
 ### Acknowledgements / Misc
 

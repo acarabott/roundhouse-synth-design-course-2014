@@ -32,6 +32,14 @@ SynthDef(\inVerb, { |in=0, mix=0.5, room=0.9, damp=0.1, pan=0, out=0|
 ~cave.set(\room, 0.2);
 ~cave.set(\room, 1);
 
+
 /*
-Check out the CombC UGen and then build your own live input SynthDef with it
+
+Other UGens to explore with live input:
+- CombC
+- PitchShift
+- Decimator
+- CrossoverDistortion
+- GVerb
+- SwitchDelay
 */
