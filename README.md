@@ -50,7 +50,6 @@
     + Pitch/Tartini
     + Amplitude
 + Integrating with DAW
-+ Granular Synthesis
 
 ### Acknowledgements / Misc
 
