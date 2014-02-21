@@ -1,4 +1,10 @@
-# Roundhouse Workshop Plan  
+# Synth Design Course - Roundhouse 2014
+
+A synth design course taught in SuperCollider.
+
+Taught to 16-25 year olds at the Roundhouse, Camden, London as part of their Take Part projects in the lead up to the Roundhouse Rising festival.
+
+http://www.roundhouse.org.uk/take-part/creative-projects
 
 ## Workshop format
 
@@ -56,7 +62,3 @@
 Teaching style and material influenced by Nick Collins' SuperCollider Tutorial 
 
 http://www.dur.ac.uk/nick.collins/teaching/supercollider/sctutorial/tutorial.html#chapter1
-
-Taught to 16-25 year olds at the Roundhouse, Camden, London as part of their Take Part projects in the lead up to the Roundhouse Rising festival.
-
-http://www.roundhouse.org.uk/take-part/creative-projects
