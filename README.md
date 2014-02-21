@@ -11,40 +11,39 @@
 
 ## Workshop Topics
 
-### 11/01
+### 1 - 11/01
 + Intro to SuperCollider
 + Coding Basics
 + Making a sound
 + Input: MouseX/Y, MIDIdef
 
-### 18/01
+### 2 - 18/01
 + Catchup: synths, variables, .set
 + SynthDef/Synth
 + Envelopes
 + Polyphony
 + Into to filters
 
-### 25/01
+### 3 - 25/01
 + Catchup: SynthDefs, Envelopes, Polyphony
 + Filters
 + Subtractive Synthesis
 + retriggering envelopes
 + Demo: recreating Logic's ES P
 
-### 01/02
+### 4 - 01/02
 + Learning by example
 + Mul, add and modulation
 + Sound files
 + Phase Vocoder
 
-
-### 08/02 Cover Tutor - Dr. Matthew Yee-King
+### 5 - 08/02 Cover Tutor - Dr. Matthew Yee-King
 + Sequencing with code
 + FX / Routing
 + FM synthesis
 + Drum Synthesis
 
-### 15/02 - 16/02
+### 6-7 - 15/02 - 16/02
 + Live Input
 + Machine Listening:
     + Onsets
@@ -52,13 +51,6 @@
     + Amplitude
 + Integrating with DAW
 + Granular Synthesis
-
-### Remaining Topics
-+ FM/AM/PM
-+ Granular
-+ Concatenative
-+ Vocoder
-+ Logic MIDI FX / sequencing with code
 
 ### Acknowledgements / Misc
 
