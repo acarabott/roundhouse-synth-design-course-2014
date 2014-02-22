@@ -64,3 +64,7 @@ Teaching style and material influenced by Nick Collins' SuperCollider Tutorial
 http://www.dur.ac.uk/nick.collins/teaching/supercollider/sctutorial/tutorial.html#chapter1
 
 Examples folder includes material from SuperCollider examples, sc-users mailing list, sccode.org. Credit in files
+
+Video of students jamming with the synths they coded: 
+
+http://vimeo.com/arthurc/synthdesign2014
